@@ -3,8 +3,6 @@ import Comment from "../Comment/Comment";
 import CommentsForm from "../CommentsForm/CommentsForm";
 
 function Comments(props) {
-  console.log(props);
-
   return (
     <div className="comments">
       <CommentsForm avatar={props.avatar} />

@@ -1,14 +1,17 @@
 import SidebarVideo from "../SidebarVideo/SidebarVideo";
 
-function Videos(props) {
-  console.log(props.videos);
+function Videos({ videos, selectedVideo, videoClickHandler }) {
   return (
     <div>
       <h2 className="videos__heading">Next Videos</h2>
-      {props.videos
-        .filter((video) => video.id !== props.selectedVideo.id)
+      {videos
+        .filter((video) => video.id !== selectedVideo.id)
         .map((video) => (
-          <SidebarVideo video={video} key={video.id} />
+          <SidebarVideo
+            video={video}
+            key={video.id}
+            videoClickHandler={videoClickHandler}
+          />
         ))}
     </div>
   );

@@ -1,11 +1,10 @@
 import "./VideoPlayer.scss";
 
-function VideoPlayer(props) {
-  console.log(props.selectedVideo);
+function VideoPlayer({ selectedVideo }) {
   return (
     <video
-      src={props.selectedVideo.video}
-      poster={props.selectedVideo.image}
+      src={selectedVideo.video}
+      poster={selectedVideo.image}
       controls
       className="video-player"
     ></video>

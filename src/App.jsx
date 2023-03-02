@@ -16,14 +16,23 @@ import avatar from "./assets/images/Mohan-muruge.jpg";
 function App() {
   const [videos, setVideos] = useState(videoData);
   const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
-  console.log(videos);
+
+  const videoClickHandler = function (id) {
+    const foundVideo = videoDetails.filter((video) => video.id === id);
+    setSelectedVideo(foundVideo[0]);
+  };
+
   return (
     <div className="App">
       <Header avatar={avatar} />
       <VideoPlayer selectedVideo={selectedVideo} data={videoDetails} />
       <VideoDetails selectedVideo={selectedVideo} data={videoDetails} />
       <Comments selectedVideo={selectedVideo} avatar={avatar} />
-      <Videos videos={videos} selectedVideo={selectedVideo} />
+      <Videos
+        videos={videos}
+        selectedVideo={selectedVideo}
+        videoClickHandler={videoClickHandler}
+      />
     </div>
   );
 }
