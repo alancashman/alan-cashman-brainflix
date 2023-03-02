@@ -1,4 +1,5 @@
 import logo from "../../assets/logo/BrainFlix-logo.svg";
+import uploadIcon from "../../assets/icons/upload.svg";
 import "./Header.scss";
 
 function Header(props) {
@@ -10,7 +11,10 @@ function Header(props) {
           <input type="text" className="header__search" placeholder="Search" />
           <img src={props.avatar} className="header__avatar" alt="avatar" />
         </div>
-        <button className="header__button">Upload</button>
+        <button className="header__button">
+          <img src={uploadIcon} alt="" className="header__icon" />
+          Upload
+        </button>
       </form>
     </header>
   );
