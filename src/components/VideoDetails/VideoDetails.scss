@@ -20,7 +20,7 @@
 
   &__author,
   &__views {
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
   }
 
   &__author {
@@ -50,5 +50,6 @@
   &__comments {
     font-weight: 700;
     font-size: 0.875rem;
+    margin-bottom: 1rem;
   }
 }
