@@ -1,8 +1,9 @@
 import SidebarVideo from "../SidebarVideo/SidebarVideo";
+import "./Videos.scss";
 
 function Videos({ videos, selectedVideo, videoClickHandler }) {
   return (
-    <div>
+    <div className="videos">
       <h2 className="videos__heading">Next Videos</h2>
       {videos
         .filter((video) => video.id !== selectedVideo.id)

@@ -7,10 +7,12 @@ function Comment({ comment }) {
     day: "2-digit",
   };
 
+  console.log(comment);
+
   return (
     <div className="comment" key={comment.id}>
       <div className="comment__left">
-        <img src="" alt="" className="comment__avatar" />
+        <img src=" " className="comment__avatar" />
       </div>
       <div className="comment__right">
         <div className="comment__header">

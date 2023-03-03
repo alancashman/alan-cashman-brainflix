@@ -1,0 +1,16 @@
+@use "../../styles/partials/variables" as *;
+
+.videos {
+  margin: 1rem;
+  //   padding: 1rem;
+
+  &__heading {
+    font-size: 0.75rem;
+    color: $color-light-primary;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  
+}

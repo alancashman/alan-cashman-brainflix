@@ -10,8 +10,7 @@ function CommentsForm(props) {
       <form action="submit" className="comments-form">
         <div className="comments-form__right">
           <h3 className="comments-form__heading">Join the Conversation</h3>
-          <input
-            type="text"
+          <textarea
             placeholder="Add a new comment"
             className="comments-form__field"
           />

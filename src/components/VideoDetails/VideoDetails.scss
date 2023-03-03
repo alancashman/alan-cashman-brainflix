@@ -2,6 +2,7 @@
 
 .details {
   padding: 1rem;
+  color: $color-dark-primary;
 
   &__heading {
     margin-bottom: 1rem;
@@ -25,12 +26,14 @@
 
   &__author {
     font-weight: 700;
+    font-size: 0.875rem;
   }
 
   &__date,
   &__views,
   &__likes {
     color: $color-light-primary;
+    font-size: 0.875rem;
   }
 
   &__right {
@@ -43,8 +46,9 @@
 
   &__text {
     margin: 1rem 0;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.25rem;
+    color: $color-dark-secondary;
   }
 
   &__comments {
