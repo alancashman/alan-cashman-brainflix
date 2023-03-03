@@ -10,11 +10,11 @@ function Header(props) {
         <div className="header__row">
           <input type="text" className="header__search" placeholder="Search" />
           <img src={props.avatar} className="header__avatar" alt="avatar" />
+          <button className="header__button">
+            <img src={uploadIcon} alt="" className="header__icon" />
+            Upload
+          </button>
         </div>
-        <button className="header__button">
-          <img src={uploadIcon} alt="" className="header__icon" />
-          Upload
-        </button>
       </form>
     </header>
   );

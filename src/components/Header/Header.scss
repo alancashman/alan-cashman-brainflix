@@ -7,6 +7,11 @@
   flex-direction: column;
   align-items: center;
 
+  @include tablet {
+    flex-direction: row;
+    padding: 1rem 2rem;
+  }
+
   &__logo {
     justify-self: center;
     height: 1.5625rem;
@@ -22,6 +27,15 @@
   &__row {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      gap: 1rem;
+    }
   }
 
   &__search {
@@ -37,6 +51,12 @@
     // color: $color-dark-primary;
     font-size: 0.75rem;
 
+    @include tablet {
+      margin: 0;
+      background-position: 5%;
+      flex: 0 0 15rem;
+    }
+
     &::placeholder {
       color: $color-dark-primary;
     }
@@ -44,10 +64,14 @@
 
   &__avatar {
     @include avatar;
+    @include tablet {
+      order: 1;
+    }
   }
 
   &__button {
     padding: 0.75rem;
+    width: 100%;
     background-color: $color-primary;
     text-transform: uppercase;
     color: $color-white;
@@ -57,11 +81,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include tablet {
+      flex: 0 0 10rem;
+      height: 2.25rem;
+    }
   }
 
   &__icon {
     justify-self: flex-start;
     position: absolute;
     left: 7.5%;
+
+    @include tablet {
+      left: 68%;
+    }
   }
 }
