@@ -1,4 +1,10 @@
+@use "../../styles/partials/mixins.scss" as *;
+
 .video-player {
   width: 100%;
   height: 12rem;
+
+  @include tablet {
+    height: 25rem;
+  }
 }

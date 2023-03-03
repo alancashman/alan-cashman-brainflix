@@ -1,7 +1,8 @@
+@use "../../styles/partials/mixins.scss" as *;
 @import "../../styles/partials/variables";
 
 .details {
-  padding: 1rem;
+  padding: 1rem 2rem;
   color: $color-dark-primary;
 
   &__heading {
@@ -10,6 +11,10 @@
     border-bottom: 1px solid $color-light-secondary;
     font-size: 1.375rem;
     font-weight: 700;
+
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 
   &__details {
@@ -19,9 +24,21 @@
     border-bottom: 1px solid $color-light-secondary;
   }
 
+  &__left,
+  &__right {
+    @include tablet {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+
   &__author,
   &__views {
     padding-bottom: 0.75rem;
+
+    @include tablet {
+      padding-bottom: 0;
+    }
   }
 
   &__author {
@@ -34,6 +51,12 @@
   &__likes {
     color: $color-light-primary;
     font-size: 0.875rem;
+
+    @include tablet {
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__right {
@@ -49,6 +72,10 @@
     font-size: 0.75rem;
     line-height: 1.25rem;
     color: $color-dark-secondary;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
   }
 
   &__comments {
