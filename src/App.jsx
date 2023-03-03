@@ -13,7 +13,7 @@ import Videos from "./components/Videos/Videos";
 import avatar from "./assets/images/Mohan-muruge.jpg";
 
 function App() {
-  const [videos, setVideos] = useState(videoData);
+  const [videos] = useState(videoData);
   const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
 
   const videoClickHandler = function (id) {
@@ -24,8 +24,8 @@ function App() {
   return (
     <div className="App">
       <Header avatar={avatar} />
-      <VideoPlayer selectedVideo={selectedVideo} data={videoDetails} />
-      <VideoDetails selectedVideo={selectedVideo} data={videoDetails} />
+      <VideoPlayer selectedVideo={selectedVideo} />
+      <VideoDetails selectedVideo={selectedVideo} />
       <Comments selectedVideo={selectedVideo} avatar={avatar} />
       <Videos
         videos={videos}

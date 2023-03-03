@@ -1,0 +1,54 @@
+@import "../../styles/partials/variables";
+
+.details {
+  padding: 1rem;
+
+  &__heading {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-light-secondary;
+    font-size: 1.375rem;
+    font-weight: 700;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-light-secondary;
+  }
+
+  &__author,
+  &__views {
+    padding-bottom: 0.5rem;
+  }
+
+  &__author {
+    font-weight: 700;
+  }
+
+  &__date,
+  &__views,
+  &__likes {
+    color: $color-light-primary;
+  }
+
+  &__right {
+    padding-right: 1rem;
+  }
+
+  &__icon {
+    padding-right: 1rem;
+  }
+
+  &__text {
+    margin: 1rem 0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &__comments {
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+}
