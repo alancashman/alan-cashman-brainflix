@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./App.scss";
 import videoDetails from "./data/video-details.json";
 import videoData from "./data/videos.json";
-import "./styles/partials/global.scss";
 
 import Header from "./components/Header/Header";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
