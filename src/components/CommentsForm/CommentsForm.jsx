@@ -7,9 +7,9 @@ function CommentsForm(props) {
       <div className="comments-form__left">
         <img src={props.avatar} className="avatar" alt="avatar" />
       </div>
-      <form action="submit" className="comments-form">
-        <div className="comments-form__right">
-          <h3 className="comments-form__heading">Join the Conversation</h3>
+      <form action="submit" className="comments-form__right">
+        <h3 className="comments-form__heading">Join the Conversation</h3>
+        <div className="comments-form__row">
           <textarea
             placeholder="Add a new comment"
             className="comments-form__field"
