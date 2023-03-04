@@ -1,7 +1,12 @@
-@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .videos {
   margin: 1rem;
+
+  @include tablet {
+    margin: 2rem;
+  }
   //   padding: 1rem;
 
   &__heading {
@@ -10,7 +15,9 @@
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 1rem;
-  }
 
-  
+    @include tablet {
+      margin-bottom: 2rem;
+    }
+  }
 }
