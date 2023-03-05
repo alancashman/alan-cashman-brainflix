@@ -1,0 +1,23 @@
+@use "./variables.scss" as *;
+
+@mixin avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-image: url(../../assets/images/Mohan-muruge.jpg);
+  background-position: left;
+  background-size: cover;
+  background-color: $color-light-primary;
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}

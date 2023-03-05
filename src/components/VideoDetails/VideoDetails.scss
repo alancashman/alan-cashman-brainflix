@@ -1,0 +1,105 @@
+@use "../../styles/partials/mixins.scss" as *;
+@import "../../styles/partials/variables";
+
+.details {
+  padding: 1rem;
+  color: $color-dark-primary;
+
+  @include tablet {
+    padding: 1rem 2rem;
+  }
+
+  @include desktop {
+    // padding: 1rem 8rem;
+    margin: 1rem 0 1rem 8rem;
+    padding: 0;
+  }
+
+  &__heading {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-light-secondary;
+    font-size: 1.375rem;
+    font-weight: 700;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+    @include desktop {
+      border-bottom: none;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-light-secondary;
+  }
+
+  &__left,
+  &__right {
+    @include tablet {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+
+  &__author,
+  &__views {
+    padding-bottom: 0.75rem;
+
+    @include tablet {
+      padding-bottom: 0;
+    }
+  }
+
+  &__author {
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  &__date,
+  &__views,
+  &__likes {
+    color: $color-light-primary;
+    font-size: 0.875rem;
+
+    @include tablet {
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__right {
+    padding-right: 1rem;
+  }
+
+  &__icon {
+    padding-right: 1rem;
+  }
+
+  &__text {
+    margin: 1rem 0;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: $color-dark-secondary;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+
+    @include desktop {
+      padding-right: 1rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__comments {
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+}
