@@ -1,4 +1,3 @@
-import Comments from "../Comments/Comments";
 import viewsIcon from "../../assets/icons/views.svg";
 import likesIcon from "../../assets/icons/likes.svg";
 import "./VideoDetails.scss";
@@ -39,7 +38,6 @@ function VideoDetails({ selectedVideo }) {
       <p className="details__comments">
         {selectedVideo.comments.length} Comments
       </p>
-      {/* <Comments /> */}
     </main>
   );
 }
