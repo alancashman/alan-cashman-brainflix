@@ -64,6 +64,10 @@
       color: $color-dark-primary;
     }
 
+    &:active {
+      border: 1px solid $color-primary;
+    }
+
     @include tablet {
       padding: 0.5rem 1rem;
       height: 2.5rem;
@@ -86,6 +90,15 @@
     border-radius: 4px;
     width: 100%;
 
+    &:hover,
+    &:active {
+      background-color: $color-secondary;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
     @include tablet {
       width: 9.5rem;
       height: 2.5rem;
@@ -94,16 +107,12 @@
 
   &__icon {
     // height: 75%;
-    position: absolute;
-    left: 25%;
+    position: relative;
+    right: 30%;
     height: 1rem;
 
     @include tablet {
-      left: 76%;
-    }
-
-    @include desktop {
-      left: 51%;
+      right: 17.5%;
     }
   }
 }

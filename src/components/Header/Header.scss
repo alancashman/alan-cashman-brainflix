@@ -20,6 +20,7 @@
     justify-self: center;
     height: 1.5625rem;
     width: 7.5rem;
+    cursor: pointer;
   }
 
   &__form {
@@ -52,7 +53,6 @@
     margin: 1rem 1rem 1rem 0;
     border: 1px solid $color-light-primary;
     border-radius: 4px;
-    // color: $color-dark-primary;
     font-size: 0.75rem;
 
     @include tablet {
@@ -63,6 +63,10 @@
 
     @include desktop {
       height: 2.5rem;
+    }
+
+    &:active {
+      background-color: $color-primary;
     }
 
     &::placeholder {
@@ -90,6 +94,15 @@
     justify-content: center;
     align-items: center;
 
+    &:hover,
+    &:active {
+      background-color: $color-secondary;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
     @include tablet {
       flex: 0 0 10rem;
       height: 2.25rem;
@@ -102,15 +115,11 @@
 
   &__icon {
     justify-self: flex-start;
-    position: absolute;
-    left: 7.5%;
+    position: relative;
+    right: 35%;
 
     @include tablet {
-      left: 68.5%;
-    }
-
-    @include desktop {
-      left: 73%;
+      right: 25%;
     }
   }
 }
