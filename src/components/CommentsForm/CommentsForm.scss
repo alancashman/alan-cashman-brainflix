@@ -12,6 +12,11 @@
     margin: 0 1rem;
   }
 
+  @include desktop {
+    margin: 2rem 0 0 8rem;
+    padding-bottom: 2rem;
+  }
+
   &__right {
     flex: 1;
     display: flex;
@@ -39,6 +44,10 @@
       display: flex;
       align-items: center;
       gap: 1.5rem;
+    }
+
+    @include desktop {
+      margin-right: 1rem;
     }
   }
 
@@ -90,7 +99,11 @@
     height: 1rem;
 
     @include tablet {
-      left: 77.5%;
+      left: 76%;
+    }
+
+    @include desktop {
+      left: 51%;
     }
   }
 }

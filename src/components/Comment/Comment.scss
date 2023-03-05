@@ -12,6 +12,16 @@
     margin: 0 1rem;
   }
 
+  @include desktop {
+    padding: 1rem 1rem 1rem 0;
+    margin-left: 8rem;
+    margin-right: 0;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -43,7 +53,7 @@
 
     @include tablet {
       font-size: 0.875rem;
-      line-height: 1.25rem;
+      line-height: 1.375rem;
     }
   }
 

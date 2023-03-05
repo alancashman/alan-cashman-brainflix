@@ -25,13 +25,19 @@ function App() {
     <div className="App">
       <Header avatar={avatar} />
       <VideoPlayer selectedVideo={selectedVideo} />
-      <VideoDetails selectedVideo={selectedVideo} />
-      <Comments selectedVideo={selectedVideo} avatar={avatar} />
-      <Videos
-        videos={videos}
-        selectedVideo={selectedVideo}
-        videoClickHandler={videoClickHandler}
-      />
+      <div className="desktop-container">
+        <div className="desktop-subcontainer">
+          <VideoDetails selectedVideo={selectedVideo} />
+          <Comments selectedVideo={selectedVideo} avatar={avatar} />
+        </div>
+        <div className="desktop-subcontainer">
+          <Videos
+            videos={videos}
+            selectedVideo={selectedVideo}
+            videoClickHandler={videoClickHandler}
+          />
+        </div>
+      </div>
     </div>
   );
 }

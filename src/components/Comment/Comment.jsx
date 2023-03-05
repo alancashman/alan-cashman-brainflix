@@ -2,7 +2,7 @@ import "./Comment.scss";
 
 function Comment({ comment }) {
   const dateOptions = {
-    year: "2-digit",
+    year: "numeric",
     month: "2-digit",
     day: "2-digit",
   };
@@ -12,7 +12,7 @@ function Comment({ comment }) {
   return (
     <div className="comment" key={comment.id}>
       <div className="comment__left">
-        <img src=" " className="comment__avatar" />
+        <div className="comment__avatar" />
       </div>
       <div className="comment__right">
         <div className="comment__header">

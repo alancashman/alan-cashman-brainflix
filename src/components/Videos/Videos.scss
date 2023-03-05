@@ -7,7 +7,9 @@
   @include tablet {
     margin: 2rem;
   }
-  //   padding: 1rem;
+  @include desktop {
+    width: 25rem;
+  }
 
   &__heading {
     font-size: 0.75rem;

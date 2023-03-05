@@ -24,6 +24,10 @@
     @include tablet {
       font-size: 0.875rem;
     }
+
+    @include desktop {
+      width: 10rem;
+    }
   }
 
   &__channel {

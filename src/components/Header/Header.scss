@@ -12,6 +12,10 @@
     padding: 1rem 2rem;
   }
 
+  @include desktop {
+    padding: 1rem 8.5rem;
+  }
+
   &__logo {
     justify-self: center;
     height: 1.5625rem;
@@ -57,6 +61,10 @@
       flex: 0 0 15rem;
     }
 
+    @include desktop {
+      height: 2.5rem;
+    }
+
     &::placeholder {
       color: $color-dark-primary;
     }
@@ -86,6 +94,10 @@
       flex: 0 0 10rem;
       height: 2.25rem;
     }
+
+    @include desktop {
+      height: 2.5rem;
+    }
   }
 
   &__icon {
@@ -94,7 +106,11 @@
     left: 7.5%;
 
     @include tablet {
-      left: 68%;
+      left: 68.5%;
+    }
+
+    @include desktop {
+      left: 73%;
     }
   }
 }

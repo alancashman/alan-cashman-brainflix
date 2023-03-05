@@ -9,7 +9,7 @@ function Header(props) {
       <form action="submit" className="header__form">
         <div className="header__row">
           <input type="text" className="header__search" placeholder="Search" />
-          <img src={props.avatar} className="header__avatar" alt="avatar" />
+          <div className="header__avatar" />
           <button className="header__button">
             <img src={uploadIcon} alt="" className="header__icon" />
             Upload
