@@ -1,4 +1,5 @@
 import "./Comments.scss";
+<<<<<<< HEAD
 import commentIcon from "../../assets/icons/add_comment.svg";
 
 function Comments(props) {
@@ -35,6 +36,18 @@ function Comments(props) {
             <p className="comment__text">{comment.comment}</p>
           </div>
         </div>
+=======
+import Comment from "../Comment/Comment";
+import CommentsForm from "../CommentsForm/CommentsForm";
+
+function Comments(props) {
+  return (
+    <div className="comments">
+      <CommentsForm avatar={props.avatar} />
+
+      {props.selectedVideo.comments.map((comment) => (
+        <Comment comment={comment} key={comment.id} />
+>>>>>>> sprint-1
       ))}
     </div>
   );

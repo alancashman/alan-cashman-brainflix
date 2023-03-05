@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.comment {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid $color-light-secondary;
+
+  @include tablet {
+    padding: 2rem 0;
+    margin: 0 1rem;
+  }
+
+  @include desktop {
+    padding: 1rem 1rem 1rem 0;
+    margin-left: 8rem;
+    margin-right: 0;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+  }
+
+  &__name {
+    font-size: 0.75rem;
+    color: $color-dark-primary;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__date {
+    color: $color-light-primary;
+    font-size: 0.75rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__text {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    color: $color-dark-primary;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+  }
+
+  &__avatar {
+    background-color: $color-light-secondary;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+  }
+}

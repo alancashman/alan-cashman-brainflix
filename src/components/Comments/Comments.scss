@@ -1,5 +1,13 @@
+@use "../../styles/partials/mixins.scss" as *;
+
 .avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  @include avatar;
+}
+
+.comments {
+  margin: 0.75rem;
+
+  @include desktop {
+    margin: 0;
+  }
 }

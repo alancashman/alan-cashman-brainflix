@@ -1,0 +1,47 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.sidebar-video {
+  display: flex;
+  gap: 1rem;
+  color: $color-dark-primary;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @include tablet {
+    width: 45%;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+
+    @include desktop {
+      width: 10rem;
+    }
+  }
+
+  &__channel {
+    font-size: 0.75rem;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__thumbnail {
+    height: 60px;
+    width: 100px;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,25 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.videos {
+  margin: 1rem;
+
+  @include tablet {
+    margin: 2rem;
+  }
+  @include desktop {
+    width: 25rem;
+  }
+
+  &__heading {
+    font-size: 0.75rem;
+    color: $color-light-primary;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      margin-bottom: 2rem;
+    }
+  }
+}

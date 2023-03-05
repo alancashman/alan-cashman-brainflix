@@ -1,10 +1,10 @@
 import "./VideoPlayer.scss";
 
-function VideoPlayer(props) {
+function VideoPlayer({ selectedVideo }) {
   return (
     <video
-      src=""
-      poster={props.selectedVideo.image}
+      src={`${selectedVideo.video}?api_key=neocat`}
+      poster={selectedVideo.image}
       controls
       className="video-player"
     ></video>
