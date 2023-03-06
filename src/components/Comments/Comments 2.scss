@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins.scss" as *;
+
+.avatar {
+  @include avatar;
+}
+
+.comments {
+  margin: 0.75rem;
+
+  @include desktop {
+    margin: 0;
+  }
+}
