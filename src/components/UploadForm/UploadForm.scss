@@ -27,7 +27,19 @@
     }
   }
 
+  &__container {
+    @include desktop {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
 
+  &__column {
+    // flex: 1 0 50%;
+
+    &--fields {
+      flex: 1 0 65%;
+    }
   }
 
   &__subheading {
@@ -48,7 +60,7 @@
     }
 
     @include desktop {
-      width: 30%;
+      width: 100%;
     }
   }
 

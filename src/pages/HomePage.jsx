@@ -1,5 +1,5 @@
-import { useState } from "react";
-import videoDetails from "../data/video-details.json";
+import { useState, useEffect } from "react";
+import videoDetail from "../data/video-details.json";
 import videoData from "../data/videos.json";
 
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
@@ -8,13 +8,29 @@ import Comments from "../components/Comments/Comments";
 import Videos from "../components/Videos/Videos";
 
 import avatar from "../assets/images/Mohan-muruge.jpg";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+
+const API_URL = "https://project-2-api.herokuapp.com";
+const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
 
 function HomePage() {
-  const [videos] = useState(videoData);
-  const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(videoDetail[0]);
+  const { videoId } = useParams();
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+
+  function getVideos() {
+    axios.get(`${API_URL}/videos?api_key=${API_KEY}`).then((response) => {
+      setVideos(response.data);
+    });
+  }
 
   const videoClickHandler = function (id) {
-    const foundVideo = videoDetails.filter((video) => video.id === id);
+    const foundVideo = videoDetail.filter((video) => video.id === id);
     setSelectedVideo(foundVideo[0]);
   };
   return (

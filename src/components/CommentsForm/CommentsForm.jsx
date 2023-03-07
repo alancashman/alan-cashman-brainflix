@@ -1,4 +1,3 @@
-import commentIcon from "../../assets/icons/add_comment.svg";
 import "./CommentsForm.scss";
 
 function CommentsForm(props) {
