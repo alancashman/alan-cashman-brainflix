@@ -14,14 +14,7 @@ function CommentsForm(props) {
             placeholder="Add a new comment"
             className="comments-form__field"
           />
-          <button className="comments-form__button">
-            <img
-              src={commentIcon}
-              alt="comment icon"
-              className="comments-form__icon"
-            />
-            Comment
-          </button>
+          <button className="comments-form__button">Comment</button>
         </div>
       </form>
     </div>

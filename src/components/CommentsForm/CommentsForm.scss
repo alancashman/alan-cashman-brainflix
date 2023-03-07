@@ -90,6 +90,10 @@
     border-radius: 4px;
     width: 100%;
 
+    background-image: url(../../assets/icons/add_comment.svg);
+    background-repeat: no-repeat;
+    background-position: 5%;
+
     &:hover,
     &:active {
       background-color: $color-secondary;
