@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import videoDetail from "../data/video-details.json";
-import videoData from "../data/videos.json";
 
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
 import VideoDetails from "../components/VideoDetails/VideoDetails";
@@ -50,6 +49,7 @@ function HomePage() {
   const videoClickHandler = function (id) {
     getVideo(id);
   };
+
   return (
     <div>
       <VideoPlayer selectedVideo={selectedVideo} />
@@ -62,7 +62,7 @@ function HomePage() {
           <Videos
             videos={videos}
             selectedVideo={selectedVideo}
-            videoClickHandler={videoClickHandler}
+            // videoClickHandler={videoClickHandler}
           />
         </div>
       </div>

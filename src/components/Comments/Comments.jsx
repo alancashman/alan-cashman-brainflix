@@ -2,12 +2,12 @@ import "./Comments.scss";
 import Comment from "../Comment/Comment";
 import CommentsForm from "../CommentsForm/CommentsForm";
 
-function Comments(props) {
+function Comments({ avatar, selectedVideo }) {
   return (
     <div className="comments">
-      <CommentsForm avatar={props.avatar} />
+      <CommentsForm avatar={avatar} selectedVideo={selectedVideo} />
 
-      {props.selectedVideo.comments.map((comment) => (
+      {selectedVideo.comments.map((comment) => (
         <Comment comment={comment} key={comment.id} />
       ))}
     </div>

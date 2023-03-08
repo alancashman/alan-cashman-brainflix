@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 function SidebarVideo({ video, videoClickHandler }) {
   return (
-    <Link to={`/videos/${video.id}`}>
+    <Link to={`/videos/${video.id}`} className="sidebar-video__link">
       <div
         className="sidebar-video"
-        onClick={() => videoClickHandler(video.id)}
+        // onClick={() => videoClickHandler(video.id)}
       >
         <div className="sidebar-video__left">
           <img

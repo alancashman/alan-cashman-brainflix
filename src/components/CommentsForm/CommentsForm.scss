@@ -93,7 +93,7 @@
     background-image: url(../../assets/icons/add_comment.svg);
     background-repeat: no-repeat;
     background-position: 5%;
-    background-size: 12.5%;
+    background-size: 7.5%;
 
     &:hover,
     &:active {
@@ -107,6 +107,8 @@
     @include tablet {
       width: 9.5rem;
       height: 2.5rem;
+
+      background-size: 12.5%;
     }
   }
 
