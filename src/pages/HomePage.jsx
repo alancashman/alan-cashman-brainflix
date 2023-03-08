@@ -23,6 +23,24 @@ function HomePage() {
     getVideos();
   }, []);
 
+  useEffect(() => {
+    if (videoId) {
+      getVideo(videoId);
+    } else if (videos.length) {
+      console.log("VideoId: ", videos[0].id);
+      getVideo(videos[0].id);
+    }
+  }, [videoId, videos]);
+
+  function getVideo(videoId) {
+    axios
+      .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
+      .then((response) => {
+        console.log(response.data);
+        setSelectedVideo(response.data);
+      });
+  }
+
   function getVideos() {
     axios.get(`${API_URL}/videos?api_key=${API_KEY}`).then((response) => {
       setVideos(response.data);
@@ -30,8 +48,7 @@ function HomePage() {
   }
 
   const videoClickHandler = function (id) {
-    const foundVideo = videoDetail.filter((video) => video.id === id);
-    setSelectedVideo(foundVideo[0]);
+    getVideo(id);
   };
   return (
     <div>
