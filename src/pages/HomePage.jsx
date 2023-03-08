@@ -15,7 +15,7 @@ const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
 
 function HomePage() {
   const [videos, setVideos] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState(videoDetail[0]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const { videoId } = useParams();
 
   useEffect(() => {
@@ -46,27 +46,33 @@ function HomePage() {
     });
   }
 
-  const videoClickHandler = function (id) {
-    getVideo(id);
-  };
+  // const videoClickHandler = function (id) {
+  //   getVideo(id);
+  // };
 
   return (
-    <div>
-      <VideoPlayer selectedVideo={selectedVideo} />
-      <div className="desktop-container">
-        <div className="desktop-subcontainer">
-          <VideoDetails selectedVideo={selectedVideo} />
-          <Comments selectedVideo={selectedVideo} avatar={avatar} />
+    <>
+      {selectedVideo ? (
+        <div>
+          <VideoPlayer selectedVideo={selectedVideo} />
+          <div className="desktop-container">
+            <div className="desktop-subcontainer">
+              <VideoDetails selectedVideo={selectedVideo} />
+              <Comments selectedVideo={selectedVideo} avatar={avatar} />
+            </div>
+            <div className="desktop-subcontainer">
+              <Videos
+                videos={videos}
+                selectedVideo={selectedVideo}
+                // videoClickHandler={videoClickHandler}
+              />
+            </div>
+          </div>
         </div>
-        <div className="desktop-subcontainer">
-          <Videos
-            videos={videos}
-            selectedVideo={selectedVideo}
-            // videoClickHandler={videoClickHandler}
-          />
-        </div>
-      </div>
-    </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 

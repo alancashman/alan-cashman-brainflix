@@ -11,7 +11,7 @@ function Videos({ videos, selectedVideo, videoClickHandler }) {
           <SidebarVideo
             video={video}
             key={video.id}
-            videoClickHandler={videoClickHandler}
+            // videoClickHandler={videoClickHandler}
           />
         ))}
     </div>
