@@ -1,11 +1,33 @@
 import uploadThumbnail from "../../assets/images/Upload-video-preview.jpg";
+import { useNavigate } from "react-router-dom";
 import "./UploadForm.scss";
+
 function UploadForm() {
+  let navigate = useNavigate();
+  function handleFormSubmission(e) {
+    e.preventDefault();
+
+    const title = e.target.title.value;
+    const description = e.target.description.value;
+    if (title === "" || description === "") {
+      alert("Please fill out the required fields.");
+      return;
+    }
+    alert(
+      `Upload successful!  \nTitle: ${title} \nDescription: ${description} \nThanks for uploading!`
+    );
+    navigate("/");
+  }
+
   return (
     <div className="upload-form">
       <h1 className="upload-form__heading">Upload Video</h1>
 
-      <form action="" className="upload-form__form">
+      <form
+        action=""
+        className="upload-form__form"
+        onSubmit={handleFormSubmission}
+      >
         <div className="upload-form__container">
           <div className="upload-form__column">
             <h3 className="upload-form__subheading">Video Thumbnail</h3>
