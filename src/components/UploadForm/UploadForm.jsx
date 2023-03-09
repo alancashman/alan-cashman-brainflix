@@ -4,17 +4,19 @@ import "./UploadForm.scss";
 
 function UploadForm() {
   let navigate = useNavigate();
+
   function handleFormSubmission(e) {
     e.preventDefault();
 
     const title = e.target.title.value;
     const description = e.target.description.value;
+
     if (title === "" || description === "") {
       alert("Please fill out the required fields.");
       return;
     }
     alert(
-      `Upload successful!  \nTitle: ${title} \nDescription: ${description} \nThanks for uploading!`
+      `Upload successful!  \nTitle: ${title} \nDescription: ${description}`
     );
     navigate("/");
   }

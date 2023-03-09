@@ -14,8 +14,22 @@ const API_URL = "https://project-2-api.herokuapp.com";
 const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
 
 function HomePage() {
+  // This object prevents the errors caused by attempting to perform methods on the empty object that would otherwise initialize state on page load
+  const preLoadVideoDummy = {
+    title: "",
+    channel: "",
+    timestamp: "",
+    views: "",
+    likes: "",
+    comments: [],
+    avatar: "",
+    id: "",
+    image: "",
+    video: "",
+  };
+
   const [videos, setVideos] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(preLoadVideoDummy);
   const { videoId } = useParams();
 
   useEffect(() => {
@@ -26,7 +40,6 @@ function HomePage() {
     if (videoId) {
       getVideo(videoId);
     } else if (videos.length) {
-      console.log("VideoId: ", videos[0].id);
       getVideo(videos[0].id);
     }
   }, [videoId, videos]);
@@ -51,28 +64,26 @@ function HomePage() {
   // };
 
   return (
-    <>
-      {selectedVideo ? (
-        <div>
-          <VideoPlayer selectedVideo={selectedVideo} />
-          <div className="desktop-container">
-            <div className="desktop-subcontainer">
-              <VideoDetails selectedVideo={selectedVideo} />
-              <Comments selectedVideo={selectedVideo} avatar={avatar} />
-            </div>
-            <div className="desktop-subcontainer">
-              <Videos
-                videos={videos}
-                selectedVideo={selectedVideo}
-                // videoClickHandler={videoClickHandler}
-              />
-            </div>
-          </div>
+    <div>
+      <VideoPlayer selectedVideo={selectedVideo} />
+      <div className="desktop-container">
+        <div className="desktop-subcontainer">
+          <VideoDetails selectedVideo={selectedVideo} />
+          <Comments
+            selectedVideo={selectedVideo}
+            getVideo={getVideo}
+            avatar={avatar}
+          />
         </div>
-      ) : (
-        <></>
-      )}
-    </>
+        <div className="desktop-subcontainer">
+          <Videos
+            videos={videos}
+            selectedVideo={selectedVideo}
+            // videoClickHandler={videoClickHandler}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 

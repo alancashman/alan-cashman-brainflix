@@ -51,7 +51,7 @@
     background-position: 3%;
     padding-left: 2.5rem;
     margin: 1rem 1rem 1rem 0;
-    border: 1px solid $color-light-primary;
+    border: 1px solid $color-light-secondary;
     border-radius: 4px;
     font-size: 0.75rem;
 
@@ -92,7 +92,7 @@
 
   &__button {
     padding: 0.75rem;
-    width: 100%;
+    width: 90%;
     height: 2.5rem;
     background-color: $color-primary;
     text-transform: uppercase;
@@ -115,6 +115,10 @@
 
     &:active {
       transform: scale(0.98);
+    }
+
+    @include desktop {
+      background-size: 15%;
     }
   }
 

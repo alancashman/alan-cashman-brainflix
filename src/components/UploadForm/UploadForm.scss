@@ -108,8 +108,12 @@
     font-weight: 700;
     font-size: 0.75rem;
 
+    &:active {
+      transform: scale(0.98);
+    }
+
     @include tablet {
-      flex: 0 0 10rem;
+      flex: 0 0 9rem;
     }
 
     &--upload {
@@ -117,8 +121,16 @@
       background-repeat: no-repeat;
       background-position: 5%;
 
+      &:hover {
+        background-color: $color-secondary;
+      }
+
       @include tablet {
         order: 1;
+      }
+
+      @include desktop {
+        background-size: 12.5%;
       }
     }
 
