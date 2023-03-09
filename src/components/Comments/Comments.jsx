@@ -17,7 +17,12 @@ function Comments({ avatar, selectedVideo, getVideo }) {
       {selectedVideo.comments
         .sort((a, b) => b.timestamp - a.timestamp)
         .map((comment) => (
-          <Comment comment={comment} key={comment.id} />
+          <Comment
+            comment={comment}
+            key={comment.id}
+            selectedVideo={selectedVideo}
+            getVideo={getVideo}
+          />
         ))}
     </div>
   );

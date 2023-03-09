@@ -24,6 +24,8 @@
 
   &__right {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &__header {
@@ -54,10 +56,30 @@
     font-size: 0.75rem;
     line-height: 1.125rem;
     color: $color-dark-primary;
+    padding-bottom: 0.5rem;
 
     @include tablet {
       font-size: 0.875rem;
       line-height: 1.375rem;
+    }
+  }
+
+  &__delete-btn {
+    height: 2rem;
+    width: 2rem;
+    margin-left: auto;
+    align-self: flex-end;
+    border: 1px solid $color-light-secondary;
+    border-radius: 4px;
+    background-color: $color-white;
+
+    &:hover {
+      background-color: rgb(246, 168, 168);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.98);
     }
   }
 
