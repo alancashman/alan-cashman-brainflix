@@ -61,6 +61,7 @@
     @include tablet {
       font-size: 0.875rem;
       line-height: 1.375rem;
+      padding-bottom: 0.25rem;
     }
   }
 
@@ -69,9 +70,9 @@
     width: 2rem;
     margin-left: auto;
     align-self: flex-end;
-    border: 1px solid $color-light-secondary;
+    border: 1px solid $color-light-primary;
     border-radius: 4px;
-    background-color: $color-white;
+    background-color: #f1f1f1;
 
     &:hover {
       background-color: rgb(246, 168, 168);

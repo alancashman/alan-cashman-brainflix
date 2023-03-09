@@ -1,10 +1,7 @@
 import uploadThumbnail from "../../assets/images/Upload-video-preview.jpg";
-import { useNavigate } from "react-router-dom";
 import "./UploadForm.scss";
 
-function UploadForm() {
-  let navigate = useNavigate();
-
+function UploadForm({ setShowModal }) {
   function handleFormSubmission(e) {
     e.preventDefault();
 
@@ -15,10 +12,7 @@ function UploadForm() {
       alert("Please fill out the required fields.");
       return;
     }
-    alert(
-      `Upload successful!  \nTitle: ${title} \nDescription: ${description}`
-    );
-    navigate("/");
+    setShowModal(true);
   }
 
   return (
