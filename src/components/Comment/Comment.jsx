@@ -63,7 +63,7 @@ function Comment({ comment, selectedVideo, getVideo }) {
   }
 
   return (
-    <div className="comment" key={comment.id}>
+    <li className="comment">
       <div className="comment__left">
         <div className="comment__avatar" />
       </div>
@@ -74,12 +74,13 @@ function Comment({ comment, selectedVideo, getVideo }) {
             {getRelativeTimestamp(comment.timestamp)}
           </p>
         </div>
+        <div className="comment__row"></div>
         <p className="comment__text">{comment.comment}</p>
         <button className="comment__delete-btn" onClick={deleteCommentHandler}>
           🗑
         </button>
       </div>
-    </div>
+    </li>
   );
 }
 

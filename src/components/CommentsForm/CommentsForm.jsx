@@ -25,6 +25,7 @@ function CommentsForm({ selectedVideo, getVideo }) {
       )
       .then((response) => {
         getVideo(selectedVideo.id);
+        setComment("");
       });
   }
 

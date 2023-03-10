@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import videoDetail from "../data/video-details.json";
 
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
 import VideoDetails from "../components/VideoDetails/VideoDetails";
@@ -14,22 +13,8 @@ const API_URL = "https://project-2-api.herokuapp.com";
 const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
 
 function HomePage() {
-  // This object prevents the errors caused by attempting to perform methods on the empty object that would otherwise initialize state on page load
-  const preLoadVideoDummy = {
-    title: "",
-    channel: "",
-    timestamp: "",
-    views: "",
-    likes: "",
-    comments: [],
-    avatar: "",
-    id: "",
-    image: "",
-    video: "",
-  };
-
   const [videos, setVideos] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState(preLoadVideoDummy);
+  const [selectedVideo, setSelectedVideo] = useState({});
   const { videoId } = useParams();
 
   useEffect(() => {
@@ -59,31 +44,25 @@ function HomePage() {
     });
   }
 
-  // const videoClickHandler = function (id) {
-  //   getVideo(id);
-  // };
-
   return (
-    <div>
-      <VideoPlayer selectedVideo={selectedVideo} />
-      <div className="desktop-container">
-        <div className="desktop-subcontainer">
-          <VideoDetails selectedVideo={selectedVideo} />
-          <Comments
-            selectedVideo={selectedVideo}
-            getVideo={getVideo}
-            avatar={avatar}
-          />
-        </div>
-        <div className="desktop-subcontainer">
-          <Videos
-            videos={videos}
-            selectedVideo={selectedVideo}
-            // videoClickHandler={videoClickHandler}
-          />
+    selectedVideo.id && (
+      <div>
+        <VideoPlayer selectedVideo={selectedVideo} />
+        <div className="desktop-container">
+          <div className="desktop-subcontainer">
+            <VideoDetails selectedVideo={selectedVideo} />
+            <Comments
+              selectedVideo={selectedVideo}
+              getVideo={getVideo}
+              avatar={avatar}
+            />
+          </div>
+          <div className="desktop-subcontainer">
+            <Videos videos={videos} selectedVideo={selectedVideo} />
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 }
 

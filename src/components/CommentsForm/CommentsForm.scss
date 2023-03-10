@@ -71,7 +71,7 @@
     @include tablet {
       padding: 0.5rem 1rem;
       height: 2.5rem;
-      width: 70%;
+      flex: 1 0 70%;
     }
   }
 
@@ -93,7 +93,7 @@
     background-image: url(../../assets/icons/add_comment.svg);
     background-repeat: no-repeat;
     background-position: 5%;
-    background-size: 7.5%;
+    background-size: 1.25rem;
 
     &:hover,
     &:active {
@@ -107,6 +107,7 @@
     @include tablet {
       width: 9.5rem;
       height: 2.5rem;
+      margin-left: auto;
 
       background-size: 12.5%;
     }
