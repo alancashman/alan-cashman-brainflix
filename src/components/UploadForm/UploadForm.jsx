@@ -1,18 +1,28 @@
+import { useState } from "react";
 import uploadThumbnail from "../../assets/images/Upload-video-preview.jpg";
 import "./UploadForm.scss";
 
 function UploadForm({ setShowModal }) {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   function handleFormSubmission(e) {
     e.preventDefault();
-
-    const title = e.target.title.value;
-    const description = e.target.description.value;
 
     if (title === "" || description === "") {
       alert("Please fill out the required fields.");
       return;
     }
+    setTitle("");
+    setDescription("");
     setShowModal(true);
+  }
+  function handleTitleChange(e) {
+    setTitle(e.target.value);
+  }
+
+  function handleDescriptionChange(e) {
+    setDescription(e.target.value);
   }
 
   return (
@@ -42,6 +52,8 @@ function UploadForm({ setShowModal }) {
               name="title"
               id="title"
               placeholder="Add a title to your video"
+              value={title}
+              onChange={handleTitleChange}
             />
             <label
               htmlFor="description"
@@ -55,6 +67,8 @@ function UploadForm({ setShowModal }) {
               name="description"
               id="description"
               placeholder="Add a description to your video"
+              value={description}
+              onChange={handleDescriptionChange}
             />
           </div>
         </div>
