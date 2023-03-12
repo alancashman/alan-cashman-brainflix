@@ -2,14 +2,29 @@ import "./Comments.scss";
 import Comment from "../Comment/Comment";
 import CommentsForm from "../CommentsForm/CommentsForm";
 
-function Comments(props) {
+function Comments({ avatar, selectedVideo, getVideo }) {
+  console.log(selectedVideo.comments);
+
   return (
     <div className="comments">
-      <CommentsForm avatar={props.avatar} />
+      <CommentsForm
+        avatar={avatar}
+        selectedVideo={selectedVideo}
+        getVideo={getVideo}
+      />
 
-      {props.selectedVideo.comments.map((comment) => (
-        <Comment comment={comment} key={comment.id} />
-      ))}
+      <ul>
+        {selectedVideo.comments
+          .sort((a, b) => b.timestamp - a.timestamp)
+          .map((comment) => (
+            <Comment
+              comment={comment}
+              key={comment.id}
+              selectedVideo={selectedVideo}
+              getVideo={getVideo}
+            />
+          ))}
+      </ul>
     </div>
   );
 }

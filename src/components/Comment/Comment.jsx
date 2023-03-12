@@ -1,6 +1,10 @@
 import "./Comment.scss";
+import axios from "axios";
 
-function Comment({ comment }) {
+const API_URL = "https://project-2-api.herokuapp.com";
+const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
+
+function Comment({ comment, selectedVideo, getVideo }) {
   function getRelativeTimestamp(timestamp) {
     const currentDate = new Date();
     const currentTimestamp = currentDate.getTime();
@@ -44,8 +48,22 @@ function Comment({ comment }) {
     return output;
   }
 
+  function deleteCommentHandler() {
+    axios
+      .delete(
+        `${API_URL}/videos/${selectedVideo.id}/comments/${comment.id}?api_key=${API_KEY}`
+      )
+      .then((res) => {
+        console.log(res);
+        getVideo(selectedVideo.id);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   return (
-    <div className="comment" key={comment.id}>
+    <li className="comment">
       <div className="comment__left">
         <div className="comment__avatar" />
       </div>
@@ -56,9 +74,13 @@ function Comment({ comment }) {
             {getRelativeTimestamp(comment.timestamp)}
           </p>
         </div>
+        <div className="comment__row"></div>
         <p className="comment__text">{comment.comment}</p>
+        <button className="comment__delete-btn" onClick={deleteCommentHandler}>
+          🗑
+        </button>
       </div>
-    </div>
+    </li>
   );
 }
 

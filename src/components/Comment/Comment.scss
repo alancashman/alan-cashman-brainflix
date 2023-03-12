@@ -22,6 +22,12 @@
     }
   }
 
+  &__right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -50,10 +56,31 @@
     font-size: 0.75rem;
     line-height: 1.125rem;
     color: $color-dark-primary;
+    padding-bottom: 0.5rem;
 
     @include tablet {
       font-size: 0.875rem;
       line-height: 1.375rem;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  &__delete-btn {
+    height: 2rem;
+    width: 2rem;
+    margin-left: auto;
+    align-self: flex-end;
+    border: 1px solid $color-light-primary;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+
+    &:hover {
+      background-color: rgb(246, 168, 168);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.98);
     }
   }
 

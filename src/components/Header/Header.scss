@@ -50,7 +50,7 @@
     background-position: 3%;
     padding-left: 2.5rem;
     margin: 1rem 1rem 1rem 0;
-    border: 1px solid $color-light-primary;
+    border: 1px solid $color-light-secondary;
     border-radius: 4px;
     // color: $color-dark-primary;
     font-size: 0.75rem;
@@ -77,9 +77,19 @@
     }
   }
 
+  &__link {
+    text-decoration: none;
+    width: 100%;
+
+    @include tablet {
+      flex: 0 0 10rem;
+    }
+  }
+
   &__button {
     padding: 0.75rem;
-    width: 100%;
+    width: 90%;
+    height: 2.5rem;
     background-color: $color-primary;
     text-transform: uppercase;
     color: $color-white;
@@ -90,13 +100,27 @@
     justify-content: center;
     align-items: center;
 
+<<<<<<< HEAD
     @include tablet {
       flex: 0 0 10rem;
       height: 2.25rem;
+=======
+    background-image: url(../../assets/icons/upload.svg);
+    background-repeat: no-repeat;
+    background-position: 5%;
+
+    &:hover,
+    &:active {
+      background-color: $color-secondary;
+    }
+
+    &:active {
+      transform: scale(0.98);
+>>>>>>> sprint-2
     }
 
     @include desktop {
-      height: 2.5rem;
+      background-size: 15%;
     }
   }
 

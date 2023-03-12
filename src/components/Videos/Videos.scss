@@ -11,6 +11,10 @@
     width: 25rem;
   }
 
+  &__list {
+    list-style-type: none;
+  }
+
   &__heading {
     font-size: 0.75rem;
     color: $color-light-primary;

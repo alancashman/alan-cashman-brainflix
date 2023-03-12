@@ -7,10 +7,6 @@
   color: $color-dark-primary;
   margin-bottom: 0.5rem;
 
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-
   @include tablet {
     width: 45%;
     margin-bottom: 1rem;
@@ -26,7 +22,8 @@
     }
 
     @include desktop {
-      width: 10rem;
+      width: 11rem;
+      font-size: 0.875rem;
     }
   }
 
@@ -37,11 +34,19 @@
     @include tablet {
       font-size: 0.875rem;
     }
+
+    @include desktop {
+      font-size: 0.75rem;
+    }
   }
 
   &__thumbnail {
     height: 60px;
     width: 100px;
     border-radius: 4px;
+  }
+
+  &__link {
+    text-decoration: none;
   }
 }
