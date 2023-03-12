@@ -5,12 +5,34 @@ import "./UploadForm.scss";
 function UploadForm({ setShowModal }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [titleClass, setTitleClass] = useState(
+    "upload-form__input upload-form__input--title"
+  );
+  const [titlePlaceholder, setTitlePlaceholder] = useState(
+    "Add a title to your video"
+  );
+  const [descriptionClass, setDescriptionClass] = useState(
+    "upload-form__input upload-form__input--description"
+  );
+  const [descriptionPlaceholder, setDescriptionPlaceholder] = useState(
+    "Add a description to your video"
+  );
 
   function handleFormSubmission(e) {
     e.preventDefault();
 
-    if (title === "" || description === "") {
-      alert("Please fill out the required fields.");
+    if (title === "") {
+      setTitleClass("upload-form__input upload-form__input--title invalid");
+      setTitlePlaceholder("Please input a title for your submission.");
+      return;
+    }
+    if (description === "") {
+      setDescriptionClass(
+        "upload-form__input upload-form__input--description invalid"
+      );
+      setDescriptionPlaceholder(
+        "Please input a description for your submission."
+      );
       return;
     }
     setTitle("");
@@ -19,10 +41,12 @@ function UploadForm({ setShowModal }) {
   }
   function handleTitleChange(e) {
     setTitle(e.target.value);
+    setTitleClass("upload-form__input upload-form__input--title");
   }
 
   function handleDescriptionChange(e) {
     setDescription(e.target.value);
+    setDescriptionClass("upload-form__input upload-form__input--description");
   }
 
   return (
@@ -47,11 +71,11 @@ function UploadForm({ setShowModal }) {
               Title your video
             </label>
             <input
-              className="upload-form__input upload-form__input--title"
+              className={titleClass}
               type="text"
               name="title"
               id="title"
-              placeholder="Add a title to your video"
+              placeholder={titlePlaceholder}
               value={title}
               onChange={handleTitleChange}
             />
@@ -62,11 +86,11 @@ function UploadForm({ setShowModal }) {
               Add a video description
             </label>
             <textarea
-              className="upload-form__input upload-form__input--description"
+              className={descriptionClass}
               type="text"
               name="description"
               id="description"
-              placeholder="Add a description to your video"
+              placeholder={descriptionPlaceholder}
               value={description}
               onChange={handleDescriptionChange}
             />

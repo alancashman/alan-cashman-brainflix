@@ -7,11 +7,15 @@ const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
 
 function CommentsForm({ selectedVideo, getVideo }) {
   const [comment, setComment] = useState("");
+  const [commentClass, setCommentClass] = useState("comments-form__field");
+  const [commentPlaceholder, setCommentPlaceholder] =
+    useState("Add a new comment");
 
   function postComment(e) {
     e.preventDefault();
     if (e.target.comment.value === "") {
-      alert("Please input a comment to be posted.");
+      setCommentClass("comments-form__field comments-form__field--invalid");
+      setCommentPlaceholder("Please input the text of your comment");
       return;
     }
     const comment = {
@@ -26,11 +30,13 @@ function CommentsForm({ selectedVideo, getVideo }) {
       .then((response) => {
         getVideo(selectedVideo.id);
         setComment("");
+        setCommentPlaceholder("Add a new comment");
       });
   }
 
   function handleCommentChange(e) {
     setComment(e.target.value);
+    setCommentClass("comments-form__field");
   }
 
   return (
@@ -46,8 +52,8 @@ function CommentsForm({ selectedVideo, getVideo }) {
         <h3 className="comments-form__heading">Join the Conversation</h3>
         <div className="comments-form__row">
           <textarea
-            placeholder="Add a new comment"
-            className="comments-form__field"
+            placeholder={commentPlaceholder}
+            className={commentClass}
             name="comment"
             id="comment"
             value={comment}

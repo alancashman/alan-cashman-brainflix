@@ -1,9 +1,10 @@
 @use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
 
 .video-player {
   width: 100%;
   max-height: 12rem;
-  background-color: black;
+  background-color: $color-dark-secondary;
 
   @include tablet {
     max-height: 25rem;

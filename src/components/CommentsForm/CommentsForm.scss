@@ -68,6 +68,10 @@
       border: 1px solid $color-primary;
     }
 
+    &--invalid {
+      border: 1px solid $color-error;
+    }
+
     @include tablet {
       padding: 0.5rem 1rem;
       height: 2.5rem;
