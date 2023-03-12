@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { useState } from "react";
-=======
->>>>>>> sprint-2
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.scss";
