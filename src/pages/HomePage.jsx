@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
-
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
 import VideoDetails from "../components/VideoDetails/VideoDetails";
 import Comments from "../components/Comments/Comments";
 import Videos from "../components/Videos/Videos";
-
 import avatar from "../assets/images/Mohan-muruge.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const API_URL = "https://project-2-api.herokuapp.com";
-const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
-
 function HomePage() {
+  const API_URL = process.env.REACT_APP_API_URL;
+  console.log(API_URL);
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
   const { videoId } = useParams();
@@ -30,16 +27,14 @@ function HomePage() {
   }, [videoId, videos]);
 
   function getVideo(videoId) {
-    axios
-      .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
-      .then((response) => {
-        console.log(response.data);
-        setSelectedVideo(response.data);
-      });
+    axios.get(`${API_URL}/videos/${videoId}`).then((response) => {
+      console.log(response.data);
+      setSelectedVideo(response.data);
+    });
   }
 
   function getVideos() {
-    axios.get(`${API_URL}/videos?api_key=${API_KEY}`).then((response) => {
+    axios.get(`${API_URL}/videos`).then((response) => {
       setVideos(response.data);
     });
   }
