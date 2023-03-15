@@ -1,6 +1,8 @@
 import { useState } from "react";
-import uploadThumbnail from "../../assets/images/Upload-video-preview.jpg";
 import "./UploadForm.scss";
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function UploadForm({ setShowModal }) {
   const [title, setTitle] = useState("");
@@ -35,10 +37,25 @@ function UploadForm({ setShowModal }) {
       );
       return;
     }
+
+    axios
+      .post(`${API_URL}/videos`, {
+        title,
+        description,
+        image: "https://i.imgur.com/TWxzU3i.jpeg",
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
     setTitle("");
     setDescription("");
     setShowModal(true);
   }
+
   function handleTitleChange(e) {
     setTitle(e.target.value);
     setTitleClass("upload-form__input upload-form__input--title");
@@ -61,7 +78,11 @@ function UploadForm({ setShowModal }) {
         <div className="upload-form__container">
           <div className="upload-form__column">
             <h3 className="upload-form__subheading">Video Thumbnail</h3>
-            <img src={uploadThumbnail} alt="" className="upload-form__image" />
+            <img
+              src="http://localhost:5000/images/Upload-video-preview.jpg"
+              alt=""
+              className="upload-form__image"
+            />
           </div>
           <div className="upload-form__column upload-form__column--fields">
             <label

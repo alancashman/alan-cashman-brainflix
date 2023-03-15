@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 
 function HomePage() {
   const API_URL = process.env.REACT_APP_API_URL;
-  console.log(API_URL);
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
   const { videoId } = useParams();
@@ -27,16 +26,31 @@ function HomePage() {
   }, [videoId, videos]);
 
   function getVideo(videoId) {
-    axios.get(`${API_URL}/videos/${videoId}`).then((response) => {
-      console.log(response.data);
-      setSelectedVideo(response.data);
-    });
+    axios
+      .get(`${API_URL}/videos/${videoId}`)
+      .then((response) => {
+        console.log(response.data);
+        setSelectedVideo(response.data);
+      })
+      .catch((err) => console.error(err));
   }
 
   function getVideos() {
-    axios.get(`${API_URL}/videos`).then((response) => {
-      setVideos(response.data);
-    });
+    axios
+      .get(`${API_URL}/videos`)
+      .then((response) => {
+        console.log(response.data);
+        const videosData = response.data.map(
+          (video) =>
+            (video = {
+              id: video.id,
+              image: video.image,
+              title: video.title,
+            })
+        );
+        setVideos(videosData);
+      })
+      .catch((err) => console.error(err));
   }
 
   return (

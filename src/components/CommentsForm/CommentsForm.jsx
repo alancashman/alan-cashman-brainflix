@@ -2,8 +2,9 @@ import "./CommentsForm.scss";
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://project-2-api.herokuapp.com";
-const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
+// const API_URL = "https://project-2-api.herokuapp.com";
+const API_URL = process.env.REACT_APP_API_URL;
+// const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
 
 function CommentsForm({ selectedVideo, getVideo }) {
   const [comment, setComment] = useState("");
@@ -23,10 +24,7 @@ function CommentsForm({ selectedVideo, getVideo }) {
       comment: e.target.comment.value,
     };
     axios
-      .post(
-        `${API_URL}/videos/${selectedVideo.id}/comments?api_key=${API_KEY}`,
-        comment
-      )
+      .post(`${API_URL}/videos/${selectedVideo.id}/comments`, comment)
       .then((response) => {
         getVideo(selectedVideo.id);
         setComment("");
@@ -42,7 +40,11 @@ function CommentsForm({ selectedVideo, getVideo }) {
   return (
     <div className="comments-form">
       <div className="comments-form__left">
-        <div className="avatar" />
+        <img
+          src="http://localhost:5000/images/mohan-muruge.jpg"
+          className="avatar"
+          alt=""
+        />
       </div>
       <form
         action="submit"

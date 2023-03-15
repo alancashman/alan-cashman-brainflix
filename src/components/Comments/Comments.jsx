@@ -3,8 +3,6 @@ import Comment from "../Comment/Comment";
 import CommentsForm from "../CommentsForm/CommentsForm";
 
 function Comments({ avatar, selectedVideo, getVideo }) {
-  console.log(selectedVideo.comments);
-
   return (
     <div className="comments">
       <CommentsForm
