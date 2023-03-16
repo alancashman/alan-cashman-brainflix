@@ -1,8 +1,7 @@
 import "./Comment.scss";
 import axios from "axios";
 
-const API_URL = "https://project-2-api.herokuapp.com";
-const API_KEY = "2bdbf64f-7358-444e-8d32-783e25a7d861";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Comment({ comment, selectedVideo, getVideo }) {
   function getRelativeTimestamp(timestamp) {
@@ -50,9 +49,7 @@ function Comment({ comment, selectedVideo, getVideo }) {
 
   function deleteCommentHandler() {
     axios
-      .delete(
-        `${API_URL}/videos/${selectedVideo.id}/comments/${comment.id}?api_key=${API_KEY}`
-      )
+      .delete(`${API_URL}/videos/${selectedVideo.id}/comments/${comment.id}`)
       .then((res) => {
         console.log(res);
         getVideo(selectedVideo.id);
