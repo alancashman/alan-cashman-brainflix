@@ -51,7 +51,6 @@ function Comment({ comment, selectedVideo, getVideo }) {
     axios
       .delete(`${API_URL}/videos/${selectedVideo.id}/comments/${comment.id}`)
       .then((res) => {
-        console.log(res);
         getVideo(selectedVideo.id);
       })
       .catch((err) => {

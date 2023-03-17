@@ -29,7 +29,6 @@ function HomePage() {
     axios
       .get(`${API_URL}/videos/${videoId}`)
       .then((response) => {
-        console.log(response.data);
         setSelectedVideo(response.data);
       })
       .catch((err) => console.error(err));
@@ -39,7 +38,6 @@ function HomePage() {
     axios
       .get(`${API_URL}/videos`)
       .then((response) => {
-        console.log(response.data);
         const videosData = response.data.map(
           (video) =>
             (video = {
@@ -59,7 +57,7 @@ function HomePage() {
         <VideoPlayer selectedVideo={selectedVideo} />
         <div className="desktop-container">
           <div className="desktop-subcontainer">
-            <VideoDetails selectedVideo={selectedVideo} />
+            <VideoDetails selectedVideo={selectedVideo} getVideo={getVideo} />
             <Comments
               selectedVideo={selectedVideo}
               getVideo={getVideo}

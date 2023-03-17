@@ -1,8 +1,29 @@
 import viewsIcon from "../../assets/icons/views.svg";
 import likesIcon from "../../assets/icons/likes.svg";
 import "./VideoDetails.scss";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-function VideoDetails({ selectedVideo }) {
+const API_URL = process.env.REACT_APP_API_URL;
+
+function VideoDetails({ selectedVideo, getVideo }) {
+  // useEffect(() => {
+  //   getVideo();
+  // }, [selectedVideo.likes]);
+
+  const [likes, setLikes] = useState(selectedVideo.likes);
+
+  function likeHandler() {
+    axios
+      .put(`${API_URL}/videos/${selectedVideo.id}/likes`)
+      .then((res) => {
+        console.log(res);
+        setLikes(res.data);
+        getVideo(selectedVideo.id);
+      })
+      .catch((err) => console.error(err));
+  }
+
   const dateOptions = {
     month: "2-digit",
     day: "2-digit",
@@ -28,8 +49,13 @@ function VideoDetails({ selectedVideo }) {
             {selectedVideo.views}
           </p>
           <p className="details__likes ">
-            <img src={likesIcon} alt="likes icon" className="details__icon" />
-            {selectedVideo.likes}
+            <img
+              src={likesIcon}
+              alt="likes icon"
+              className="details__icon details__like-btn"
+              onClick={likeHandler}
+            />
+            {selectedVideo.likes.toLocaleString()}
           </p>
         </div>
       </div>
