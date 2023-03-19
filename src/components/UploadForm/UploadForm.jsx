@@ -42,7 +42,7 @@ function UploadForm({ setShowModal }) {
       .post(`${API_URL}/videos`, {
         title,
         description,
-        image: "https://i.imgur.com/TWxzU3i.jpeg",
+        image: "http://localhost:5000/images/upload-image.jpeg",
       })
       .then((response) => {
         console.log(response.data);
